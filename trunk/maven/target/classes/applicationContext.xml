@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"
+	default-autowire="byName">
+	<!--<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="jdbcUrl">
+			<value>jdbc:mysql://localhost:3306/sampledb?defaultFetchSize=25&amp;useLocalSessionState=true&amp;elideSetAutoCommit=true&amp;useUsageAdvisor=false&amp;useReadAheadInput=false&amp;useUnbufferedInput=false&amp;cacheServerConfiguration=true&amp;autoReconnect=true</value>
+		</property>
+		<property name="user">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>mysql</value>
+		</property>
+		<property name="acquireIncrement">
+			<value>3</value>
+		</property>
+		 开发阶段使用 <property name="initialPoolSize"> <value>20</value> </property> 
+		<property name="initialPoolSize">
+			<value>5</value>
+		</property>
+		<property name="minPoolSize">
+			<value>2</value>
+		</property>
+		 开发阶段，不需要那么多的线程池 <property name="maxPoolSize"> <value>50</value> </property> 
+		<property name="maxPoolSize">
+			<value>5</value>
+		</property>
+		<property name="maxIdleTime">
+			<value>50</value>
+		</property>
+		<property name="idleConnectionTestPeriod">
+			<value>900</value>
+		</property>
+		<property name="maxStatements">
+			<value>100</value>
+		</property>
+		开发阶段，不需要那么多的连接线程 <property name="numHelperThreads"> <value>30</value> 
+			</property> 
+		<property name="numHelperThreads">
+			<value>3</value>
+		</property>
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation">
+			<value>classpath:hibernate.hbm.xml</value>
+		</property>
+	</bean>
+	
+	<bean id="com.sundp.search.dao.impl.IndexDao" class="com.sundp.search.dao.impl.IndexDao"
+		p:sessionFactory-ref="sessionFactory">
+	</bean>
+	 配置事务管理器 
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	--><!-- 自动扫描事务
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	 -->
+	<!--<bean id="indexDao" class="com.sundp.search.dao.impl.FileDao"></bean>
+	<bean id="indexService" class="com.sundp.search.service.impl.IndexService">
+		<property name="indexDao" ref="indexDao" />
+	</bean>
+	
+	
+--></beans>  
