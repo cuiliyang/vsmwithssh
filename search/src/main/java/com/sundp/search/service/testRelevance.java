@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import com.sundp.search.dao.IIndexDao;
+import com.sundp.search.dao.impl.FileDao;
 import com.sundp.search.service.impl.IndexService;
 
 public class testRelevance {
@@ -15,7 +17,8 @@ public class testRelevance {
 		Map<String ,Double> queryList ;
 		Set<Integer> relationDocs = new HashSet<Integer>();
 		Set<Integer> unRelationDocs = new HashSet<Integer>();
-		IIndexService ss = new IndexService();
+		IIndexDao dd = new FileDao();
+		IIndexService ss = new IndexService(dd);
 		String question = "用经济常识知识简要说明重视安全生产的经济意义";
 		//String question = "从经济常识角度，说明怎样才能“用新体制、新机制振兴东北老工业基地”？";
 		queryList=ss.getQueryList(question);

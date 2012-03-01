@@ -7,12 +7,11 @@ import java.util.Set;
 import com.opensymphony.xwork2.ActionSupport;
 import com.sundp.search.entity.Query;
 import com.sundp.search.service.IIndexService;
-import com.sundp.search.service.impl.IndexService;
 
 public class searchAction extends ActionSupport {
 
 	private static final long serialVersionUID = 7439491799699265473L;
-	private IIndexService indexService = new IndexService();
+	private IIndexService indexService;
 	private String out;
 	private String queryString;
 	private Map<Integer, Double> result;
@@ -20,7 +19,7 @@ public class searchAction extends ActionSupport {
 	private Map<String, Double> queryList;
 	private List<Query> queryLists;
 	private Map<String, Double> oldqueryList;
-	private final Map<Integer, String> docs = indexService.getDocs();
+	//private Map<Integer, String> docs ;
 	private Set<Integer> relationDocs;
 	private Set<Integer> unRelationDocs;
 	private long time;
@@ -133,7 +132,7 @@ public class searchAction extends ActionSupport {
 	}
 
 	public Map<Integer, String> getDocs() {
-		return docs;
+		return indexService.getDocs();
 	}
 
 	public String getQueryString() {
@@ -147,4 +146,5 @@ public class searchAction extends ActionSupport {
 	public long getTime() {
 		return time;
 	}
+
 }

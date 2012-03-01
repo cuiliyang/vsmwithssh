@@ -63,9 +63,7 @@
 		</property>
 	</bean>
 	
-	<bean id="com.sundp.search.dao.impl.IndexDao" class="com.sundp.search.dao.impl.IndexDao"
-		p:sessionFactory-ref="sessionFactory">
-	</bean>
+	
 	 配置事务管理器 
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
@@ -76,9 +74,12 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	 -->
 	<!--<bean id="indexDao" class="com.sundp.search.dao.impl.FileDao"></bean>
+	
+	
+	
+-->
+	<bean id="indexDao" class="com.sundp.search.dao.impl.FileDao"></bean>
 	<bean id="indexService" class="com.sundp.search.service.impl.IndexService">
-		<property name="indexDao" ref="indexDao" />
+		<constructor-arg ref="indexDao"></constructor-arg>
 	</bean>
-	
-	
---></beans>  
+</beans>  

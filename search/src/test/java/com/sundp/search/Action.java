@@ -7,11 +7,14 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import com.sundp.search.dao.IIndexDao;
+import com.sundp.search.dao.impl.FileDao;
 import com.sundp.search.service.IIndexService;
 import com.sundp.search.service.impl.IndexService;
 
 public class Action {
-	IIndexService ss = new IndexService();
+	IIndexDao dd = new FileDao();
+	IIndexService ss = new IndexService(dd);
 	Date d = new Date();
 
 	@Test

@@ -12,13 +12,12 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import com.sundp.search.dao.IIndexDao;
-import com.sundp.search.dao.impl.FileDao;
 import com.sundp.search.entity.Query;
 import com.sundp.search.service.IIndexService;
 
 public class IndexService implements IIndexService {
 	// TODO 依赖
-	private IIndexDao indexDao = new FileDao();
+	private IIndexDao indexDao;
 
 	// private final Map<String, Double> idf;
 	private final Map<Integer, String> docs;
@@ -26,8 +25,9 @@ public class IndexService implements IIndexService {
 	private final Map<Integer, Double> docLength = new LinkedHashMap<Integer, Double>();
 	private final Map<Integer, Map<String, Double>> docTerms;
 
-	public IndexService() {
+	public IndexService(IIndexDao indexDao) {
 		super();
+		this.indexDao = indexDao;
 		docs = indexDao.getDocs();
 		// idf = indexDao.getIdf();
 		terms = indexDao.getTerms();
